@@ -1,0 +1,10 @@
+{
+    "sites": [
+        {
+            "reference": "descricao do servidor", 
+            "from": "/var/www/vhosts/", 
+            "to": "/mnt/disk1/BACKUPS/",
+	        "status": "enable"
+        }
+    ]
+}
