@@ -48,12 +48,13 @@ with open(config_file) as json_file:
         beep()
         beep()
         status =  p['status']
-    if status == "enable":
         #print count
-        print 'Backup reference: ' + p['reference']
-        # execute command
-        to = p['to'] +'/'+args.type+'/'
-        log_file = script_path+'/logs/'+args.type+'/'+p['reference'] + '_' +current_date+'.log'
-        os.system('rsync -Cravz --progress --delete-excluded '+p['from']+' '+to+' --log-file='+log_file)
-        print('')
-        print('')
+        print "Reference: "+p['reference']
+        print 'Backup reference: ' + p['reference'] +' / status: '+status
+        if status == "1":
+                to = p['to'] +'/'+args.type+'/'
+                log_file = script_path+'/logs/'+args.type+'/'+p['reference'] + '_' +current_date+'.log'
+                os.system('rsync -Cravz --progress --delete-excluded '+p['from']+' '+to+' --log-file='+log_file)
+                print('')
+                print('')
+print "End..."
